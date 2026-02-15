@@ -8,22 +8,41 @@ const authRouter = express.Router();
 //register route
 authRouter.post("/register", async (req, res) => {
     try {
-
         const { name, email, password } = req.body;
+
+        // Basic validation
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
+
+        if (password.length < 6) {
+            return res.status(400).json({ message: "Password must be at least 6 characters long" });
+        }
 
         const existingUser = await User.findOne({ email });
 
-        const hashedPassword = await bcrypt.hash(password, 10);
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ name, email, password: hashedPassword });
         await newUser.save();
         res.status(201).json({ message: "User registered successfully" });
     } catch (error) {
         console.error("Error registering user:", error);
-        returnres.status(500).json({ message: "Internal server error" });
+        
+        // Handle specific validation errors
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(err => err.message);
+            return res.status(400).json({ message: messages[0] });
+        }
+        
+        if (error.code === 11000) {
+            return res.status(400).json({ message: "User already exists" });
+        }
+        
+        return res.status(500).json({ message: "Internal server error" });
     }
 });
 

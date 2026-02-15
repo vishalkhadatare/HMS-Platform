@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:5173", // Update with your frontend URL
+  origin: ["http://localhost:5173", "https://hms-platform-08bfetg3b-teams-projects-ab1914f9.vercel.app", /\.vercel\.app$/],
   credentials: true, // Allow cookies to be sent
 }));
 app.use(express.json());
