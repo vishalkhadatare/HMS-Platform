@@ -1,11 +1,11 @@
-# 🏥 Hospital Appointment Booking System
+# Hospital Appointment Booking System
 
-## 📌 Introduction
+## Introduction
 The Hospital Appointment Booking System is a full-stack web application that enables patients to book doctor appointments online, doctors to manage appointments, and admins to control system operations. The application implements role-based access control to ensure secure and efficient workflows.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - Frontend: React, Tailwind CSS
 - Backend: Node.js, Express
 - Database: MongoDB (Mongoose)
@@ -14,7 +14,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 
 ---
 
-## ✨ Features
+## Features
 - Role-based access control (Admin, Doctor, Patient)
 - Secure authentication & authorization
 - Doctor availability management
@@ -25,20 +25,20 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 
 ---
 
-## 👥 User Roles & Permissions
+## User Roles & Permissions
 
-### 👑 Admin
+### Admin
 - Add doctors 
 - View all appointments
 
-### 🧑‍⚕️ Doctor
+### Doctor
 - Login using admin-provided credentials
 - Create and update doctor profile
 - Set availability (days and time slots)
 - View assigned appointments
 - Update appointment status
 
-### 🧑‍🦱 Patient
+### Patient
 - Register and login
 - View available doctors
 - Book appointments
@@ -47,7 +47,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 
 ---
 
-## 🔐 Authentication
+## Authentication
 Authentication is handled using JWT.  
 All protected routes require the token in the request header:
 
@@ -126,7 +126,7 @@ POST/api/auth/registe
 }
 
 ```
-###  👑 Admin APIs
+###  Admin APIs
 ### 1. Add Doctors
 
 **Endpoint:**POST /api/admin/add-doctor
