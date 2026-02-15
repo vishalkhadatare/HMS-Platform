@@ -18,5 +18,8 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VITE_API_URL": "https://hospital-backend-2-3zi4.onrender.com/api"
+  }
 }
