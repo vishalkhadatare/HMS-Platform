@@ -1,0 +1,11 @@
+{
+  "name": "hms-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm start"
+  },
+  "devDependencies": {
+    "@vercel/static-build": "^1.0.0"
+  }
+}
